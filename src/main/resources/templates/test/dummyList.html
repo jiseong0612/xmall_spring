@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>dummy index page</title>
+</head>
+<body>
+	<h1>home index page</h1>
+	<h2>dummy page</h2>
+	<ul>
+		<li th:each="dummy : ${dummyList}" th:text="${dummy.name} + ' 입니다. ' + ${dummy.subject}">test</li>
+	</ul>
+</body>	
+</html>
