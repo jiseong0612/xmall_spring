@@ -34,15 +34,16 @@ public class TestController {
 	}
 
 	@GetMapping("/getDummy")
-	public String getDummy(Model model) {
+	@ResponseBody
+	public List<Map<String, Object>> getDummy(Model model) {
 		log.info("get Dummy.......");
 
 		List<Map<String, Object>> dummyList = service.getDummyList();
 		model.addAttribute("dummyList", dummyList);
 
 		dummyList.stream().forEach(dMap -> log.info(dMap.get("name").toString()));
-
-		return "/test/dummyList";
+		return dummyList;
+		//return "/test/dummyList";
 	}
 
 	@PostMapping("/postDummy")
